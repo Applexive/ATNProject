@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit product</title>
+    <style>
+        a:hover {
+            color: red;
+            font-weight: bold;
+        }
+        nav {
+            list-style-type: none;
+            position: fixed, center;
+            padding-top: 0;
+            width: 100%;
+            margin: 0px;
+            padding:0;
+            background-color: lightblue;
+        }
+        body, html {
+            height: 100%;
+        }
+         
+        .bg {
+            background-color: lightyellow;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    <nav>
+        <a href="/">Home</a>
+    </nav>
+    <h1>Update Product</h1>
+    <form action="/update" method="post">
+        <input type="hidden" name="txtID" value="{{product._id}}">
+        Product Name : <input type="text" name="txtName" value="{{product.name}}">
+        <Br>
+        Price : <input type="text" name="txtPrice" value="{{product.price}}">
+        <br/>
+        <input type="submit" value="Update">
+    </form>
+</div>    
+</body>
+</html>
