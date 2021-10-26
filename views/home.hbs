@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATN Home Page</title>
+    <style>
+        nav {
+            list-style-type: none;
+            position: fixed, center;
+            padding-top: 0;
+            width: 100%;
+            margin: 0px;
+            padding:0;
+            background-color: lightblue;
+        }
+        body, html {
+            height: 100%;
+        }
+         
+        .bg {
+            background-color: lightyellow;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    <nav>
+        <ul>
+        <a href="/">Home</a>
+        </ul>
+    </nav>
+    <center>
+    <h1>ATN Toy Shop</h1>
+    <h2>welcomes you</h2>
+    </center>
+    <br><br>
+    <center><h1>Add new Product</h1>
+        <form action="insert" method="post">
+                Product Name:
+                <input type="text" name="txtName" id="txtName">
+                <br>
+                Price: 
+                <input type="number" name="txtPrice" id="txtPrice">
+                <br>
+                Picture URL:
+                <input type="text" name="txtURL" id="txtURL">
+                <span style="color: red;">{{picError}}</span>
+                <br>
+                <input type="submit" value="Insert">
+        </form>
+    </center>    
+    <br>
+    <center><h1>Product list</h1></center>
+{{#each products}}
+{{/each}}    
+    <center>
+        <table border="1" width="50%">
+            <tr>
+                <td>ID</td>
+                <td>NAME</td>
+                <td>PRICE</td>
+                <td>PICTURE</td>
+                <td>DELETE</td>
+            </tr>
+            {{#each products}}
+                <tr>
+                    <td>{{_id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{price}}</td>
+                    <td><img src="{{picURL}}" width="120" height="100"></td>
+                    <td><a onclick="return confirm('Do you really want to delete this?')" href="/delete/{{_id}}">DELETE</a></td>
+                </tr>
+            {{/each}}
+        </table>
+    </center>
+</div>
+</body>
+</html>
