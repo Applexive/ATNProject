@@ -24,7 +24,7 @@ async function deleteObject(id,collectionName){
     dbo.collection(collectionName).deleteOne({_id:ObjectId(id)})
 }
 
-module.exports = {insertToDB, getAll, deleteObject, }
+module.exports = {insertToDB, getAll, deleteObject}
 
 
 

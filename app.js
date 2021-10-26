@@ -9,11 +9,6 @@ app.get('/',async (req,res)=>{
     res.render('home',{products:result})
 })
 
-app.get('/add',async (req,res)=>{
-    res.render('add')
-})
-
-
 app.get('/delete/:id',async (req,res)=>{
     const idValue = req.params.id
     await deleteObject(idValue, "products")

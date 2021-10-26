@@ -50,6 +50,24 @@
     <h1>ATN Toy Shop</h1>
     <h2>welcomes you</h2>
     </center>
+    <br><br>
+    <center><h1>Add new Product</h1>
+        <form action="insert" method="post">
+                Product Name:
+                <input type="text" name="txtName" id="txtName">
+                <span style="color: red;">{{nameError}}</span>
+                <br>
+                Price: 
+                <input type="number" name="txtPrice" id="txtPrice" min="20" max="300">
+                <span style="color: red;">{{priceError}}</span>
+                <br>
+                Picture URL:
+                <input type="text" name="txtURL" id="txtURL">
+                <span style="color: red;">{{picError}}</span>
+                <br>
+                <input type="submit" value="Insert">
+        </form>
+    </center>    
     <center><h1>Product list</h1></center>
 {{#each products}}
 {{/each}}    
