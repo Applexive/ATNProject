@@ -21,7 +21,7 @@ app.post('/update', async (req, res) => {
     const url = req.body.txtPictureURL
     if (url.length ==0){
         let updateValues = { $set: { name: name, price: price, picURL: url } };
-        res.render('edit', { products: result, picError: 'Please do not leave the text box empty!'})
+        res.render('/edit/:id', { products: result, urlError: 'Please do not leave the text box empty!'})
     } else{
     let updateValues = { $set: { name: name, price: price, picURL: url } };
 
