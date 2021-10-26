@@ -18,7 +18,8 @@ app.post('/update', async (req, res) => {
     const id = req.body.txtId
     const name = req.body.txtName
     const price = req.body.txtPrice
-    let updateValues = { $set: { name: name, price: price } };
+    const url = req.body.txtPictureURL
+    let updateValues = { $set: { name: name, price: price, picURL: url } };
 
     await updateDocument(id, updateValues, "products")
     res.redirect('/')
