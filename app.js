@@ -42,14 +42,14 @@ app.post('/insert',async (req,res)=>{
     const url = req.body.txtURL
     if (url.length == 0) {
         var result = await getAll("products")
-        res.render('home', { products: result, picError: 'Please input the picture of the product!'})
+        res.render('home', { product: result, picError: 'Please input the picture of the product!'})
     } else if (name.length == 0){
         var result = await getAll("products")
-        res.render('home', { products: result, nameError: 'Please input the name of the product!'})
+        res.render('home', { product: result, nameError: 'Please input the name of the product!'})
     }
     else if (price.length == 0){
         var result = await getAll("products")
-        res.render('home', { products: result, priceError: 'Please input the price of the product!'})
+        res.render('home', { product: result, priceError: 'Please input the price of the product!'})
     }
     else {
         const obj = { name: name, price: price, picURL: url }
