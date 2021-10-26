@@ -15,7 +15,7 @@ app.get('/delete/:id',async (req,res)=>{
     res.redirect('/')
 })
 app.post('/update', async (req, res) => {
-    const id = req.body.txtId
+    const id = req.body.txtID
     const name = req.body.txtName
     const price = req.body.txtPrice
     const url = req.body.txtPictureURL
