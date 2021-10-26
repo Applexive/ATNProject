@@ -36,37 +36,27 @@
 <div class="bg">
     <nav>
         <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/add">Add product</a></li>
+        <a href="/">Home</a>
         </ul>
     </nav>
-    <center>
-    <h1>ATN Toy Shop</h1>
-    <h2>welcomes you</h2>
-    </center>
-    <center><h1>Product list</h1></center>
-{{#each products}}
-{{/each}}    
-    <center>
-        <table border="1" width="50%">
-            <tr>
-                <td>ID</td>
-                <td>NAME</td>
-                <td>PRICE</td>
-                <td>PICTURE</td>
-                <td>DELETE</td>
-            </tr>
-            {{#each products}}
-                <tr>
-                    <td>{{_id}}</td>
-                    <td>{{name}}</td>
-                    <td>{{price}}</td>
-                    <td><img src="{{picURL}}" width="120" height="100"></td>
-                    <td><a onclick="return confirm('Do you really want to delete this?')" href="/delete/{{_id}}">DELETE</a></td>
-                </tr>
-            {{/each}}
-        </table>
-    </center>
+    <center><h1>Add new Product</h1>
+        <form action="insert" method="post">
+                Product Name:
+                <input type="text" name="txtName" id="txtName">
+                <span style="color: red;">{{nameError}}</span>
+                <br>
+                Price: 
+                <input type="number" name="txtPrice" id="txtPrice">
+                <span style="color: red;">{{priceError}}</span>
+                <br>
+                Picture URL:
+                <input type="text" name="txtURL" id="txtURL">
+                <span style="color: red;">{{picError}}</span>
+                <br>
+                <input type="submit" value="Insert">
+        </form>
+    </center>    
+
 </div>
 </body>
 </html>
