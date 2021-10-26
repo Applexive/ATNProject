@@ -19,10 +19,15 @@ app.post('/update', async (req, res) => {
     const name = req.body.txtName
     const price = req.body.txtPrice
     const url = req.body.txtPictureURL
+    if (url.length ==0){
+        var result = await getAll("products")
+        res.render('edit', { products: result, picError: 'Please input the picture of the product!'})
+    } else{
     let updateValues = { $set: { name: name, price: price, picURL: url } };
 
     await updateDocument(id, updateValues, "products")
     res.redirect('/')
+    }
 })
 
 app.get('/edit/:id', async (req, res) => {
